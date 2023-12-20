@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS (Card Management System) - Bin Adding</title>
+    <link rel="icon" href="https://i.imgur.com/wF27CyX.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #DCEEFB;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .bin-adding-container {
+            background-color: #F0F7FF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .bin-adding-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        button {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            color: #333;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            transform: translateY(-2px);
+        }
+
+        a {
+            text-align: center;
+            margin-top: 16px;
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="bin-adding-container">
+        <h2>CMS (Card Management System) - Bin Adding</h2>
+        <form method="post" action="{{ url_for('bin_adding') }}" class="bin-adding-form">
+            <!-- Input for BIN -->
+            <label for="bin">Bin:</label>
+            <input type="text" id="bin" name="bin" required>
+
+            <!-- Input for Country -->
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+
+            <!-- Input for Card Vendor -->
+            <label for="card_vendor">Card Vendor:</label>
+            <input type="text" id="card_vendor" name="card_vendor" required>
+
+            <!-- Input for Bin Name -->
+            <label for="bin_name">Bin Name:</label>
+            <input type="text" id="bin_name" name="bin_name" required>
+
+            <!-- Submit button -->
+            <button type="submit">Add Bin</button>
+        </form>
+
+        <!-- Link back to the Dashboard -->
+        <a href="/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html>

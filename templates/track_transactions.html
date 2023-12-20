@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS (Card Management System) - Tracking Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #DCEEFB;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            overflow-y: auto; /* Ensure vertical scroll */
+        }
+
+        .tracking-container {
+            background-color: #F0F7FF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: auto; /* Adjust width to content */
+            max-width: 95%; /* Max width to avoid horizontal scroll */
+            margin: 20px; /* Space from the top of the page */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ced4da;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        .back-to-dashboard {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .tracking-container {
+                width: 90%;
+                margin: 10px;
+                padding: 20px;
+            }
+            th, td {
+                padding: 8px; /* Smaller padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tracking-container">
+        <h1>Transaction History</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Card Number</th>
+                    <th>Status</th>
+                    <th>Transaction History</th>
+                    <th>Issue Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bin in bins %}
+                    {% for card in bin.cards %}
+                        {% for transaction in card.transactions %}
+                            <tr>
+                                <td>{{ card.card_number[:6] }}XXXXXX{{ card.card_number[-4:] }}</td>
+                                <td>{{ transaction.status }}</td>
+                                <td>{{ transaction.transaction_history }}</td>
+                                <td>{{ transaction.issue_date }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="back-to-dashboard">
+            <a href="/dashboard">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

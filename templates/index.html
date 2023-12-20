@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.imgur.com/LPH5WF4.png" type="image/x-icon">
+    <title>Transaction Server</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #DCEEFB;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #F0F7FF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            color: #333;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <form action="/issue_transaction" method="post">
+        <h1>Transaction Server</h1>
+
+        <label for="card_number">Card Number:</label>
+        <input type="text" id="card_number" name="card_number" required aria-label="Card Number">
+
+        <label for="cardholder_name">Cardholder Name:</label>
+        <input type="text" id="cardholder_name" name="cardholder_name" required aria-label="Cardholder Name">
+
+        <label for="expiry_date">Expiry Date (MM/YY):</label>
+        <input type="text" id="expiry_date" name="expiry_date" pattern="\d{2}/\d{2}" placeholder="MM/YY" required
+            aria-label="Expiry Date">
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" pattern="\d{3}" placeholder="123" required aria-label="CVV">
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" step="0.01" required aria-label="Amount">
+
+        <button type="submit">Issue Transaction</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Dashboard</title>
+    <link rel="icon" href="https://i.imgur.com/wF27CyX.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #DCEEFB;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure minimum height to allow scrolling on mobile */
+        }
+
+        .dashboard-container {
+            position: relative;
+            background-color: #F0F7FF;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+            grid-gap: 15px;
+            max-width: 1200px;
+            width: 100%; /* Ensure full width on smaller screens */
+            overflow-x: auto; /* Allow horizontal scroll on smaller screens */
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .card img {
+            width: 60px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .button-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .button {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+            transition: background 0.3s, transform 0.3s;
+            width: 100%;
+        }
+
+        .button:hover {
+            background: linear-gradient(145deg, #ffffff, #FF4B5C);
+            transform: translateY(-2px);
+        }
+
+        .logout-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .button-logout {
+            background: #FF4B5C;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .button-logout:hover {
+            background: #FF6B7D;
+            box-shadow: 0 6px 6px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+
+            .card img {
+                width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="logout-container">
+            <form action="{{ url_for('logout') }}" method="post">
+                <button type="submit" class="button button-logout">Logout</button>
+            </form>
+        </div>
+        
+        <!-- Each of these divs is a card -->
+        <div class="card">
+            <img src="https://i.imgur.com/CtQPWH9.png" alt="Bin Icon">
+            <div class="card-header">Bin Adding</div>
+            <div class="card-content">Add and manage BIN details.</div>
+            <a href="/bin_adding" class="button-link">
+                <button class="button">Go to Page</button>
+            </a>
+        </div>
+
+        <!-- Additional cards for other functions -->
+        <div class="card">
+            <img src="https://i.imgur.com/dg06t0W.png" alt="Card Issue Icon">
+            <div class="card-header">Card Issuing</div>
+            <div class="card-content">Issue new cards to customers.</div>
+            <a href="/card_generation" class="button-link">
+                <button class="button">Go to Page</button>
+            </a>	
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/0yKz0Og.png" alt="Balance Icon">
+            <div class="card-header">Balance Adding</div>
+            <div class="card-content">Add funds to existing cards.</div>
+            <a href="/balance_adding" class="button-link">
+                <button class="button">Go to Page</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/kIdroUM.png" alt="Transaction Icon">
+            <div class="card-header">Transaction Tracking</div>
+            <div class="card-content">Track card transactions in real-time.</div>
+            <a href="/track_transactions" class="button-link">
+                <button class="button">Go to Page</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

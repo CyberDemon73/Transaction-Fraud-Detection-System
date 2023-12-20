@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS (Card Management System) - Balance Adding</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #DCEEFB;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .balance-adding-container {
+            background-color: #F0F7FF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .balance-adding-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        button {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            color: #333;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: #ff0000;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        a {
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="balance-adding-container">
+        <h2>CMS (Card Management System) - Balance Adding</h2>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <form method="post" action="{{ url_for('balance_adding') }}" class="balance-adding-form">
+            <label for="national_id">National ID:</label>
+            <input type="text" id="national_id" name="national_id" required>
+            <label for="card_number">Card Number:</label>
+            <input type="text" id="card_number" name="card_number" required>
+            <label for="amount">Amount to Add:</label>
+            <input type="number" id="amount" name="amount" required>
+            <button type="submit">Add Balance</button>
+        </form>
+        <a href="/dashboard" style="text-align: center; margin-top: 20px; display: block;">Back to Dashboard</a>
+    </div>
+</body>
+</html>

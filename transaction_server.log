@@ -1,0 +1,69 @@
+2023-12-19 06:31:18,873 - ERROR - Failed to issue transaction: Status code 400. Detail: {
+  "error": "Card status is \"Dead\". Transaction failed."
+}
+
+2023-12-19 06:31:46,248 - ERROR - Failed to issue transaction: Status code 400. Detail: {
+  "error": "Card status is \"Dead\". Transaction failed."
+}
+
+2023-12-19 06:31:52,348 - INFO - Transaction issued successfully
+2023-12-19 06:33:17,285 - INFO - Transaction issued successfully
+2023-12-19 16:01:16,047 - ERROR - Failed to issue transaction: Status code 400. Detail: {
+  "error": "CVV Wrong Attempts +1"
+}
+
+2023-12-19 16:19:23,990 - ERROR - Failed to issue transaction: Status code 400. Detail: {
+  "error": "CVV Wrong Attempts +1"
+}
+
+2023-12-19 16:23:48,695 - ERROR - Failed to issue transaction: Status code 400
+2023-12-19 18:37:52,248 - ERROR - Input validation error: Invalid card number format
+2023-12-19 18:37:52,633 - ERROR - Input validation error: Invalid card number format
+2023-12-19 18:41:24,761 - ERROR - Failed to issue transaction: Status code 400
+2023-12-19 18:43:51,454 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 18:46:28,873 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 18:47:16,586 - INFO - Transaction issued successfully
+2023-12-19 18:49:48,169 - INFO - Transaction issued successfully
+2023-12-19 18:58:40,684 - INFO - Transaction issued successfully
+2023-12-19 18:59:12,992 - ERROR - Network error: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/create_transaction (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fcb4ddcfa60>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-12-19 18:59:48,850 - ERROR - Network error: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/create_transaction (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3543953a60>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-12-19 18:59:58,094 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:01:23,635 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:02:50,233 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:12:23,278 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:14:24,458 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:16:10,540 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:17:31,257 - ERROR - Input validation error: Invalid card number format
+2023-12-19 19:17:44,182 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:19:59,797 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:21:33,201 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:22:20,271 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:24:01,109 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:24:40,374 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:25:40,875 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:28:23,611 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:29:45,012 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:30:04,915 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:30:53,768 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:34:44,423 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:35:31,483 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:35:51,756 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:46:54,364 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:47:17,162 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:48:06,922 - ERROR - Failed to issue transaction: Status code 500
+2023-12-19 19:49:59,909 - ERROR - Failed to issue transaction: Status code 400
+2023-12-19 19:50:38,610 - ERROR - Failed to issue transaction: Status code 400
+2023-12-19 19:52:11,267 - ERROR - Failed to issue transaction: Status code 400
+2023-12-19 19:52:46,346 - ERROR - Failed to issue transaction: Status code 400
+2023-12-19 19:53:42,744 - ERROR - Failed to issue transaction: Status code 400, Detail: {
+  "error": "Card status is \"Dead\". Transaction failed."
+}
+
+2023-12-19 19:54:36,951 - ERROR - Failed to issue transaction: Status code 400, Detail: {
+  "error": "Insufficient funds. Transaction failed."
+}
+
+2023-12-19 19:55:51,422 - ERROR - Failed to issue transaction: Status code 400, Detail: {
+  "error": "High risk transaction. Card status changed to \"Dead\"."
+}
+

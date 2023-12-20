@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #DCEEFB;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #F0F7FF;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            color: #333;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .success-message {
+            color: green;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Card Generation</h1>
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('card_generation') }}" onsubmit="return validateForm()">
+        <label for="bin">Choose a Bin:</label>
+        <select id="bin" name="bin" required>
+            {% for bin in bins %}
+                 <option value="{{ bin.id }}">{{ bin.bin_number }} - {{ bin.card_vendor }} - {{ bin.country }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="national_id">National ID:</label>
+        <input type="text" id="national_id" name="national_id" pattern="\d{14}" title="National ID should be 14 digits" required>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" pattern="\d{11}" title="Phone number should be 11 digits" required>
+
+        <button type="submit">Generate Card</button>
+
+        <p class="error-message" id="error-message"></p>
+    </form>
+
+    <script>
+        // Display error message in the form
+        var errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = '{{ error_message }}';
+    </script>
+</body>
+</html>
