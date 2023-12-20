@@ -9,6 +9,7 @@ The Card Management and Transaction Processing System integrates card management
   - [Transaction Processing System (TXN)](#transaction-processing-system-txn)
 - [Technologies Used](#technologies-used)
 - [Setup](#setup)
+- [Docker Setup](#docker-setup)
 - [Usage](#usage)
 - [Error Handling](#error-handling)
 - [Logging](#logging)
@@ -101,6 +102,65 @@ python3 TXN.py
 ```
 #### Open your web browser and go to http://localhost:5000 to access the CMS (Card Management System).
 #### Open your web browser and go to http://localhost:5002 to access the TXN (Transaction Server).
+
+## Docker Setup
+To create a Docker image for your project and launch CMS.py on port 5000 and TXN.py on port 5002, you can follow these steps:
+
+### Create a Dockerfile in your project directory:
+```Dockerfile
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+
+# Expose ports
+EXPOSE 5000
+EXPOSE 5002
+
+# Define environment variables
+ENV FLASK_APP "CMS.py"
+ENV FLASK_RUN_HOST "0.0.0.0"
+
+# Run the application
+CMD ["flask", "run", "--port=5000"]
+```
+### Building the Docker Image
+
+```bash
+# Build the Docker image from the Dockerfile in the current directory
+docker build -t my-project-image .
+```
+Replace my-project-image with a suitable name for your Docker image.
+
+### Running the Docker Containers
+### For CMS.py on Port 5000:
+To run the CMS component of your application, execute the following command:
+
+```bash
+# Run the container for CMS.py, mapping the host's port 5000 to the container's port 5000
+docker run -d -p 5000:5000 my-project-image
+```
+
+### For TXN.py on Port 5002:
+Similarly, to run the TXN component, use this command:
+
+```bash
+# Run the container for TXN.py, mapping the host's port 5002 to the container's port 5002
+docker run -d -p 5002:5002 -e FLASK_APP="TXN.py" my-project-image
+```
+These commands start containers based on the image you built, mapping the container ports to the specified host ports.
+
+### Accessing the Application
+#### CMS Interface: Access your CMS at http://localhost:5000
+#### TXN Interface: Access TXN at http://localhost:5002 
+
 
 ## Usage
 ### Card Management System (CMS):
