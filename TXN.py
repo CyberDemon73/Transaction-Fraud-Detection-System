@@ -104,4 +104,4 @@ def handle_custom_error(e):
 
 if __name__ == '__main__':
     with app.app_context():
-        app.run(debug=os.getenv('FLASK_DEBUG', 'True') == 'True', port=5002)
+        app.run(debug=os.getenv('FLASK_DEBUG', 'False') == 'False', port=5002)
