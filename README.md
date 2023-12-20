@@ -1,6 +1,6 @@
 # Card Management and Transaction Processing System
 
-The Card Management and Transaction Processing System is a comprehensive application that consists of two distinct components: the CMS (Card Management System) and TXN (Transaction Processing System). This README provides an overview of the project's architecture, features of each component, and how to set it up.
+The Card Management and Transaction Processing System integrates card management (CMS) with advanced transaction processing (TXN), focusing on real-time fraud detection. It employs sophisticated algorithms to flag unusual transaction patterns, enhancing security in financial operations. The system combines user-friendly interfaces with robust back-end technologies, including Python, Flask, and SQLite, to efficiently manage and monitor card-related services and transactions. Its standout feature is the proactive detection and mitigation of fraudulent activities, showcasing practical applications of fraud detection in digital finance.
 
 ## Table of Contents
 - [Architecture](#architecture)
