@@ -141,14 +141,20 @@ class User(db.Model, UserMixin):
         self.locked_until = None
         db.session.commit()
 
-# Luhn algorithm for generating credit card numbers
+def luhn_sum(digits):
+    """Calculate the sum as per Luhn Algorithm."""
+    return sum(sum(divmod(2 * digit, 10)) if i % 2 else digit for i, digit in enumerate(reversed(digits)))
+
 def generate_credit_card(bin_number):
     bin_digits = [int(digit) for digit in bin_number]
-    # Assume the last digit is the check digit and generate the remaining digits
+    # Generate the remaining digits, excluding the last check digit
     digits_to_generate = 16 - len(bin_digits) - 1
     generated_digits = [randint(0, 9) for _ in range(digits_to_generate)]
-    # Calculate the check digit using the Luhn algorithm
-    check_digit = (10 - (sum(bin_digits + generated_digits) % 10)) % 10
+    
+    # Check digit calculation
+    total = luhn_sum(bin_digits + generated_digits)
+    check_digit = (10 - total % 10) % 10
+
     # Construct the complete credit card number
     credit_card_number = ''.join(map(str, bin_digits + generated_digits + [check_digit]))
     return credit_card_number
