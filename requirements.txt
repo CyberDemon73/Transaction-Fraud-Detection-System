@@ -17,3 +17,6 @@ requests==2.26.0
 # traceback - Standard Library
 # re - Standard Library
 # random - Standard Library
+certifi>=2023.7.22 # not directly required, pinned by Snyk to avoid a vulnerability
+idna>=3.7 # not directly required, pinned by Snyk to avoid a vulnerability
+jinja2>=3.1.4 # not directly required, pinned by Snyk to avoid a vulnerability
